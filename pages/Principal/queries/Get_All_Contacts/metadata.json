@@ -1,6 +1,6 @@
 {
   "gitSyncId": "68ac6bd22ac92e4e64b958a8_9ad36598-ac16-4da6-96ab-9549728f90e3",
-  "id": "Page1_Get_All_Contacts",
+  "id": "Principal_Get_All_Contacts",
   "pluginId": "restapi-plugin",
   "pluginType": "API",
   "unpublishedAction": {
@@ -25,19 +25,19 @@
       "queryParameters": [
         {
           "key": "limit",
-          "value": "{{ContactsTable.pageSize}}"
+          "value": "{{ContactTable.pageSize}}"
         },
         {
           "key": "offset",
-          "value": "{{ContactsTable.pageOffset}}"
-        },
-        {
-          "key": "search",
-          "value": "{{ContactsTable.searchText}}"
+          "value": "{{(ContactTable.pageNo-1)*ContactTable.pageSize}}"
         },
         {
           "key": "fields",
-          "value": "id,Prenom,Nom,Civilite,Particule"
+          "value": "id,Prenom,Nom,Civilite,Particule,Photo"
+        },
+        {
+          "key": "search",
+          "value": "{{ContactTable.searchText}}"
         }
       ],
       "timeoutInMillisecond": 10000
@@ -57,11 +57,11 @@
         "key": "queryParameters[1].value"
       },
       {
-        "key": "queryParameters[2].value"
+        "key": "queryParameters[3].value"
       }
     ],
     "name": "Get_All_Contacts",
-    "pageId": "Page1",
+    "pageId": "Principal",
     "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false
   }
